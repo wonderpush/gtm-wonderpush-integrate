@@ -62,16 +62,15 @@ ___TEMPLATE_PARAMETERS___
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const injectScript = require('injectScript');
-const setInWindow = require('setInWindow');
-const callInWindow = require('callInWindow');
+const createQueue = require('createQueue');
 
-// Capture values of template fields
+const WonderPush_push = createQueue('WonderPush');
+
 const initOptions = {
   webKey: data.webKey,
 };
+WonderPush_push(["init", initOptions]);
 
-setInWindow('WonderPush', [], false);
-callInWindow('WonderPush.push', ["init", initOptions]);
 injectScript('https://cdn.by.wonderpush.com/sdk/1.1/wonderpush-loader.min.js', () => {
   data.gtmOnSuccess();
 }, (e) => {
@@ -132,45 +131,6 @@ ___WEB_PERMISSIONS___
                     "boolean": false
                   }
                 ]
-              },
-              {
-                "type": 3,
-                "mapKey": [
-                  {
-                    "type": 1,
-                    "string": "key"
-                  },
-                  {
-                    "type": 1,
-                    "string": "read"
-                  },
-                  {
-                    "type": 1,
-                    "string": "write"
-                  },
-                  {
-                    "type": 1,
-                    "string": "execute"
-                  }
-                ],
-                "mapValue": [
-                  {
-                    "type": 1,
-                    "string": "WonderPush.push"
-                  },
-                  {
-                    "type": 8,
-                    "boolean": false
-                  },
-                  {
-                    "type": 8,
-                    "boolean": false
-                  },
-                  {
-                    "type": 8,
-                    "boolean": true
-                  }
-                ]
               }
             ]
           }
@@ -218,6 +178,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 12/3/2019, 12:40:59 PM
+Created on 12/10/2019, 9:17:50 AM
 
 
