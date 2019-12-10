@@ -15,6 +15,6 @@
 homepage: "https://www.wonderpush.com"
 documentation: "https://docs.wonderpush.com/docs/web-push-notifications-google-tag-manager"
 versions:
-  - sha: 346dbcbcf20dcb59c9a4e125933109079e2c798e
+  - sha: d98355ef7d549e0c75390540d233843e6c8ccb0d
     changeNotes: |-
       Integrate the WonderPush Web SDK snippet into your pages.
